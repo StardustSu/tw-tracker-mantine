@@ -184,6 +184,10 @@ export default function UsersTable() {
 
     function saveMemo() {
         setLoading(true);
+        if (selection) setSelection({
+            ...selection,
+            notes: memo
+        });
         fetch(API_BASE + "/memo", {
             method: 'POST',
             headers: {
